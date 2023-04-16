@@ -3,9 +3,11 @@ const express = require("express");
 const bosyParser = require("body-parser");
 const _ = require("lodash");
 const mongoose = require("mongoose");
-const uri =
-  "mongodb+srv://MalakGdaya:ON9SvIwz3nGT8Cae@cluster0.djmgskd.mongodb.net/todolistDB";
-mongoose.connect(uri);
+const dotenv = require('dotenv');
+dotenv.config();
+
+mongoose.set("strictQuery", false);
+mongoose.connect(process.env.CONNECTION_LINK_DB, { useNewUrlParser: true }).then(() => console.log("Database connected")).catch((err) => console.log(err));
 const Schema = mongoose.Schema;
 
 const app = express();
