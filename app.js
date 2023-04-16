@@ -3,11 +3,8 @@ const express = require("express");
 const bosyParser = require("body-parser");
 const _ = require("lodash");
 const mongoose = require("mongoose");
-const dotenv = require('dotenv');
-dotenv.config();
-
 mongoose.set("strictQuery", false);
-mongoose.connect(process.env.CONNECTION_LINK_DB, { useNewUrlParser: true }).then(() => console.log("Database connected")).catch((err) => console.log(err));
+mongoose.connect(CONNECTION_LINK_DB, { useNewUrlParser: true }).then(() => console.log("Database connected")).catch((err) => console.log(err));
 const Schema = mongoose.Schema;
 
 const app = express();
