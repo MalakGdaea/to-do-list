@@ -4,7 +4,7 @@ const bosyParser = require("body-parser");
 const _ = require("lodash");
 const mongoose = require("mongoose");
 mongoose.set("strictQuery", false);
-mongoose.connect(CONNECTION_LINK_DB || "mongodb://localhost/to-do-list", { useNewUrlParser: true }).then(() => console.log("Database connected")).catch((err) => console.log(err));
+mongoose.connect(process.env.CONNECTION_LINK_DB || "mongodb://localhost/to-do-list", { useNewUrlParser: true }).then(() => console.log("Database connected")).catch((err) => console.log(err));
 const Schema = mongoose.Schema;
 
 const app = express();
