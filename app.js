@@ -118,6 +118,8 @@ app.post("/delete", function (req, res) {
   }
 });
 
-app.listen(3000, () => {
+const PORT = 8080
+
+app.listen(process.env.PORT || PORT, () => {
   console.log("The server is listening to the port 3000");
 });
